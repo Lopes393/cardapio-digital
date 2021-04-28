@@ -1,23 +1,23 @@
-/vendor/
-node_modules/
-npm-debug.log
-yarn-error.log
+cardapio-backend/vendor/
+cardapio-backend/node_modules/
+cardapio-backend/npm-debug.log
+cardapio-backend/yarn-error.log
 
 # Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+cardapio-backend/bootstrap/compiled.php
+cardapio-backend/app/storage/
 
 # Laravel 5 & Lumen specific
-public/storage
-public/hot
+cardapio-backend/public/storage
+cardapio-backend/public/hot
 
 # Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
+cardapio-backend/public_html/storage
+cardapio-backend/public_html/hot
 
-storage/*.key
-.env
-Homestead.yaml
-Homestead.json
-/.vagrant
-.phpunit.result.cache
+cardapio-backend/storage/*.key
+cardapio-backend/.env
+cardapio-backend/Homestead.yaml
+cardapio-backend/Homestead.json
+cardapio-backend/.vagrant
+cardapio-backend/.phpunit.result.cache
