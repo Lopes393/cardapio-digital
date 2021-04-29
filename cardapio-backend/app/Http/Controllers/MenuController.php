@@ -17,9 +17,9 @@ class MenuController extends Controller
         return Menu::create($request->all());
     }
 
-    public function show($name)
+    public function show($bussinesKey)
     {
-        $menu = \App\Models\Menu::getMenuByName($name);
+        $menu = \App\Models\Menu::getMenuByBussinesKey($bussinesKey);
         if (!$menu) {
             return response(['response' => 'Não existe Menu'], 400);
         }

@@ -24,7 +24,7 @@ class User extends Authenticatable
         'login',
         'phone',
         'bussines',
-        'bussines_fk',
+        'bussines_key',
         'is_active',
         'password',
         'remember_token'
