@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('user', "App\Http\Controllers\UserController@index");
+Route::get('user/{id}', "App\Http\Controllers\UserController@show");
+
 Route::get('menu', "App\Http\Controllers\MenuController@index");
 Route::get('product', "App\Http\Controllers\ProductController@index");
 Route::get('followUp', "App\Http\Controllers\FollowUpController@index");
