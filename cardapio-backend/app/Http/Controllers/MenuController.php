@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Menu;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,13 @@ class MenuController extends Controller
         return Menu::create($request->all());
     }
 
-    public function show($id)
+    public function show($name)
     {
-        return Menu::where('id', $id)->first();
+        $menu = \App\Models\Menu::getMenuByName($name);
+        if (!$menu) {
+            return response(['response' => 'Não existe Menu'], 400);
+        }
+
+        return response($menu);
     }
 }

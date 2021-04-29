@@ -17,6 +17,22 @@ class Menu extends Model
         'description',
         'value_delivery',
         'is_active',
-        'id_user'
+        'id_user',
     ];
+
+    public static function getMenuByName($name)
+    {
+        $query = self::select(
+            'user.bussines_key',
+            'user.bussines',
+            'user.phone',
+            'menu.id',
+            'menu.description',
+            'menu.value_delivery'
+        )
+            ->join('user as u', 'u.id', '=', 'menu.id_user')
+        ;
+
+        return \App\Models\Filter::paginate($query);
+    }
 }
