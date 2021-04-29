@@ -1,16 +1,23 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
-import {BoxButtom, BoxListMenu, Container, BoxMenu} from './styles';
+import {BoxButtom, BoxListMenu, Container, BoxMenu, BoxListOrder} from './styles';
 import menu from './../../assets/img/menu.png';
 import btnMenu from './../../assets/img/btnMenu.svg';
 import btnPedido from './../../assets/img/btnPedido.svg';
 
 export function Menu() {
     const [menus, setMenus] = useState<any[]>([]);
+    const [orders, setOrders] = useState<any[]>([]);
+    const [tela, setTela] = useState<string>('menu');
 
     useEffect(() => {
         getMenus();
     }, [])
+
+    function alterarTela(tela: string) {
+        console.log("alterou")
+        
+    }
     
     function getMenus() {
         const arUrlPath = window.location.pathname.split('/');
@@ -26,20 +33,29 @@ export function Menu() {
 
     return (
         <Container>
-            <BoxListMenu>
-
-            {menus.map((item) => (
-                <BoxMenu key={item.id}>
-                    <img src={menu} alt=""/> 
-                    <strong>{item.description}</strong>
-                </BoxMenu>
-            ))}
-            </BoxListMenu>
+            
+            {tela === "order" ? 
+                <BoxListOrder>
+                    {menus.map((item) => (
+                        <BoxMenu key={item.id}>
+                            <strong>outra tela</strong>
+                        </BoxMenu>
+                    ))}
+                </BoxListOrder> : 
+                <BoxListMenu>
+                    {menus.map((item) => (
+                        <BoxMenu key={item.id}>
+                            <img src={menu} alt=""/> 
+                            <strong>{item.description}</strong>
+                        </BoxMenu>
+                    ))}
+                </BoxListMenu>
+                }
             <BoxButtom>
-                <div>
+                <div onClick={() => setTela("menu")}>
                     <img src={btnMenu} alt=""/>
                 </div>
-                <div>
+                <div onClick={() => setTela("order")}>
                     <img src={btnPedido} alt=""/>
                 </div>
             </BoxButtom>

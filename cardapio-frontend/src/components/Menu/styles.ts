@@ -17,6 +17,12 @@ export const BoxListMenu = styled.div`
     margin: 0 auto;
 `;
 
+export const BoxListOrder = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+`;
+
 export const BoxButtom = styled.div`
         position:fixed;
         bottom: 0;
