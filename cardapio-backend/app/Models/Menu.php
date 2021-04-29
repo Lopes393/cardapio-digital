@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'id',
+        'description',
+        'value_delivery',
+        'is_active',
+        'id_user'
+
+    ];
 }
