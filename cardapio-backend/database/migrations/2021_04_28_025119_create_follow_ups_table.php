@@ -18,7 +18,7 @@ class CreateFollowUpsTable extends Migration
             $table->string('description')->nullable();
             $table->boolean('is_active')->default(true);
             $table->boolean('is_free')->default(false);
-            $table->decimal('value')->nullable();
+            $table->decimal('value', 8, 2)->nullable();
             $table->bigInteger('min');
             $table->bigInteger('max');
             $table->bigInteger('id_product')->unsigned()->index();
