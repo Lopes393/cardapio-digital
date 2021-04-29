@@ -11,6 +11,7 @@ class Menu extends Model
 
     protected $table = 'menu';
     protected $primaryKey = 'id';
+<<<<<<< HEAD
 
     protected $fillable = [
         'id',
@@ -35,4 +36,7 @@ class Menu extends Model
 
         return \App\Models\Filter::paginate($query);
     }
+=======
+    protected $fillable = ['id', 'description', 'value_delivery', 'is_active', 'id_user'];
+>>>>>>> 9ae3510e849b2bd4e6bc61ab719f00c217af60f8
 }
