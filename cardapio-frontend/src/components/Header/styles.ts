@@ -6,6 +6,9 @@ export const Container = styled.main`
   padding: 2rem 1rem;
   display: flex;
   flex-direction: row;
+  background-color: #6959CD;
+  margin-bottom: 15px;
+  color: white;
 `;
 
 export const ImgBox = styled.div`

@@ -4,7 +4,7 @@ import {Container, ImgBox, UserBox} from './styles'
 import bussines from './../../assets/img/bussines.svg';
 
 export function Header() {
-    const [user, setUser] = useState<any[]>([]);
+    const [user, setUser] = useState<any>({});
 
     useEffect(() => {
         getUser();
@@ -12,15 +12,11 @@ export function Header() {
     
     function getUser() {
         const arUrlPath = window.location.pathname.split('/');
+        
         if (arUrlPath.length > 1) {
             const bussinesKey = arUrlPath[1];
-
-            // if (window.location.pathname)  {
-            //     api.get(`bussines/${bussinesKey}`)
-            //     .then(response => setUser(response.data.transactions))
-            // }
+            api.get(`user/${bussinesKey}`).then(response => setUser(response.data))
         }
-        
     }
 
     return (
@@ -29,8 +25,8 @@ export function Header() {
                 <img src={bussines} alt=""/>   
             </ImgBox>
             <UserBox>
-                <strong>Capel Hot Dogs</strong>
-                <p>(64) 99918-7173</p>
+                <strong>{user?.bussines}</strong>
+                <p>{user?.phone}</p>
             </UserBox>
         </Container>
     )

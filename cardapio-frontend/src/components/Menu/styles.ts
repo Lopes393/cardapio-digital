@@ -23,4 +23,42 @@ export const BoxButtom = styled.div`
         height:80px;
         width: 100%;
         background-color: #6959CD;
+        display: flex;
+        flex-direction: row;
+
+        div {
+            width: 50%;
+            flex: 1;
+            padding: 1em 5.5em;
+        }
+
+        img {
+            width: 50px;
+        }
+`;
+
+export const BoxMenu = styled.div`
+    padding: 3em 4em;
+    background-color: #6959CD;
+    color: #fff;
+    margin-bottom: 15px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 3px 3px 5px #777 ;
+    border-radius: 5px;
+
+    img {
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    &:active {
+        background-color: #2f2570;
+        box-shadow: none;
+    }
+
+    &:hover {
+        background-color: #2f2570;
+    }
 `;

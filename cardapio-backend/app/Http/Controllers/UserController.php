@@ -16,8 +16,8 @@ class UserController extends Controller
         return User::create($request->all());
     }
 
-    public function show($id)
+    public function show($bussinesKey)
     {
-        return User::where('id', $id)->first();
+        return User::where('bussines_key', $bussinesKey)->first();
     }
 }

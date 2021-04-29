@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
-import {BoxButtom, BoxListMenu, Container} from './styles';
-import bussines from './../../assets/img/bussines.svg';
+import {BoxButtom, BoxListMenu, Container, BoxMenu} from './styles';
+import menu from './../../assets/img/menu.png';
+import btnMenu from './../../assets/img/btnMenu.svg';
+import btnPedido from './../../assets/img/btnPedido.svg';
 
 export function Menu() {
-    const [user, setMenu] = useState<any[]>([]);
+    const [menus, setMenus] = useState<any[]>([]);
 
     useEffect(() => {
         getMenus();
@@ -12,13 +14,12 @@ export function Menu() {
     
     function getMenus() {
         const arUrlPath = window.location.pathname.split('/');
+
         if (arUrlPath.length > 1) {
             const bussinesKey = arUrlPath[1];
-
-            // if (window.location.pathname)  {
-            //     api.get(`menus/${bussinesKey}`)
-            //     .then(response => setMenu(response.data.menus))
-            // }
+            if (window.location.pathname)  {
+                api.get(`menu/${bussinesKey}`).then(response => setMenus(response.data))
+            }
         }
         
     }
@@ -27,9 +28,20 @@ export function Menu() {
         <Container>
             <BoxListMenu>
 
-                Lista de Menus
+            {menus.map((item) => (
+                <BoxMenu key={item.id}>
+                    <img src={menu} alt=""/> 
+                    <strong>{item.description}</strong>
+                </BoxMenu>
+            ))}
             </BoxListMenu>
             <BoxButtom>
+                <div>
+                    <img src={btnMenu} alt=""/>
+                </div>
+                <div>
+                    <img src={btnPedido} alt=""/>
+                </div>
             </BoxButtom>
         </Container>
     )
