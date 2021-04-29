@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->unique();
             $table->boolean('is_active')->default(true);
             $table->string('bussines')->nullable();
+            $table->string('bussines_fk')->nullable();
             $table->string('phone')->nullable();
             $table->rememberToken();
             $table->timestamps();

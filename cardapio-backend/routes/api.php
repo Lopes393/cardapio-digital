@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('menu', "App\Http\Controllers\api\MenuController@index");
-Route::get('product', "App\Http\Controllers\api\ProductController@index");
-Route::get('followUp', "App\Http\Controllers\api\FollowUpController@index");
-Route::get('payment', "App\Http\Controllers\api\PaymentController@index");
+Route::get('user', "App\Http\Controllers\UserController@index");
+Route::get('menu', "App\Http\Controllers\MenuController@index");
+Route::get('product', "App\Http\Controllers\ProductController@index");
+Route::get('followUp', "App\Http\Controllers\FollowUpController@index");
+Route::get('payment', "App\Http\Controllers\PaymentController@index");
