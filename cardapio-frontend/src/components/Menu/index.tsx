@@ -6,12 +6,14 @@ import menu from './../../assets/img/menu.png';
 import btnMenu from './../../assets/img/btnMenu.svg';
 import btnPedido from './../../assets/img/btnPedido.svg';
 import animationData from './../../assets/lotties/hamburguer.json';
+import { MenuProduct } from '../MenuProduct';
 
 
 export function Menu() {
     const [menus, setMenus] = useState<any[]>([]);
-    const [orders, setOrders] = useState<any[]>([]);
-    const [tela, setTela] = useState<string>('menu');
+    const [telageral, setTelaGeral] = useState<string>('menu');
+    const [telaMenu, setTelaMenu] = useState<string>('menu');
+    const [idMenu, setIdMenu] = useState<number>(0);
 
     const defaultOptions = {
         loop: true,
@@ -28,9 +30,17 @@ export function Menu() {
         getMenus();
     }, [])
 
-    function alterarTela(tela: string) {
-        console.log("alterou")
-        
+    function alterTela() {
+        if (telageral === "menu") {
+            setTelaMenu('menu')
+        } else {
+            setTelaGeral("menu")
+        }
+    }
+
+    function viewMenuById(idMenu: number) {
+        setTelaMenu('menuItem')
+        setIdMenu(idMenu)
     }
     
     function getMenus() {
@@ -54,7 +64,7 @@ export function Menu() {
                     width={90}
                 />
             </BoxHamb>
-            {tela === "order" ? 
+            {telageral === "order" ? 
                 <BoxListOrder>
                     {menus.map((item) => (
                         <BoxMenu key={item.id}>
@@ -62,20 +72,23 @@ export function Menu() {
                         </BoxMenu>
                     ))}
                 </BoxListOrder> : 
-                <BoxListMenu>
-                    {menus.map((item) => (
-                        <BoxMenu key={item.id}>
-                            <img src={menu} alt=""/> 
-                            <strong>{item.description}</strong>
-                        </BoxMenu>
-                    ))}
+                <BoxListMenu >
+                    {telaMenu === "menu" ? 
+                        menus.map((item) => (
+                            <BoxMenu key={item.id} onClick={() => {viewMenuById(item.id)}}>
+                                <img src={menu} alt=""/> 
+                                <strong>{item.description}</strong>
+                            </BoxMenu> 
+
+                        ))
+                    : <MenuProduct idMenu={idMenu}/> }
                 </BoxListMenu>
                 }
             <BoxButtom>
-                <div onClick={() => setTela("menu")}>
+                <div onClick={alterTela}>
                     <img src={btnMenu} alt=""/>
                 </div>
-                <div onClick={() => setTela("order")}>
+                <div onClick={() => setTelaGeral("order")}>
                     <img src={btnPedido} alt=""/>
                 </div>
             </BoxButtom>
