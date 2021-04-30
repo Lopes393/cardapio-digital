@@ -12,4 +12,13 @@ class Product extends Model
     protected $table = 'product';
     protected $primaryKey = 'id';
     protected $fillable = ['id', 'name', 'description', 'is_active', 'id_menu'];
+
+    public static function getProductsByMenu($idMenu)
+    {
+        return self::select('product.*')
+            ->join('menu as m', 'm.id', '=', 'product.id_menu')
+            ->where('product.id_menu', $idMenu)
+            ->get()
+        ;
+    }
 }

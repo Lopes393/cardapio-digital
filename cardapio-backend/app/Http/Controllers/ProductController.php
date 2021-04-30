@@ -16,8 +16,13 @@ class ProductController extends Controller
         return Product::create($request->all());
     }
 
-    public function show($id)
+    public function show($idMenu)
     {
-        return Product::where('id', $id)->first();
+        $product = \App\Models\Product::getProductsByMenu($idMenu);
+        if (!$product) {
+            return response(['response' => 'Não existe produto'], 400);
+        }
+
+        return response($product);
     }
 }
