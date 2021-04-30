@@ -1,14 +1,28 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
-import {BoxButtom, BoxListMenu, Container, BoxMenu, BoxListOrder} from './styles';
+import Lottie from 'react-lottie';
+import {BoxButtom, BoxListMenu, Container, BoxMenu, BoxListOrder, BoxHamb} from './styles';
 import menu from './../../assets/img/menu.png';
 import btnMenu from './../../assets/img/btnMenu.svg';
 import btnPedido from './../../assets/img/btnPedido.svg';
+import animationData from './../../assets/lotties/hamburguer.json';
+
 
 export function Menu() {
     const [menus, setMenus] = useState<any[]>([]);
     const [orders, setOrders] = useState<any[]>([]);
     const [tela, setTela] = useState<string>('menu');
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
+
+    
 
     useEffect(() => {
         getMenus();
@@ -33,7 +47,13 @@ export function Menu() {
 
     return (
         <Container>
-            
+            <BoxHamb>
+                <Lottie 
+                    options={defaultOptions}
+                    height={90}
+                    width={90}
+                />
+            </BoxHamb>
             {tela === "order" ? 
                 <BoxListOrder>
                     {menus.map((item) => (

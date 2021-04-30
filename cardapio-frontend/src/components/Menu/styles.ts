@@ -23,10 +23,17 @@ export const BoxListOrder = styled.div`
     margin: 0 auto;
 `;
 
+export const BoxHamb = styled.div`
+    position: fixed;
+    z-index: 10;
+    margin-top: 90px;
+
+`;
+
 export const BoxButtom = styled.div`
         position:fixed;
         bottom: 0;
-        height:80px;
+        height:70px;
         width: 100%;
         background-color: #6959CD;
         display: flex;
@@ -64,7 +71,19 @@ export const BoxMenu = styled.div`
         box-shadow: none;
     }
 
+    transition: filter 0.2s;
+
     &:hover {
-        background-color: #2f2570;
+        filter: brightness(0.9);
     }
+
+    &:last-child {
+        margin-bottom: 90px;
+    }
+
+    &:first-child {
+        margin-top: 90px;
+    }
+
+
 `;
