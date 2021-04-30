@@ -39,6 +39,15 @@ export function Menu() {
         }
     }
 
+    function prepareMenu(menus: any[]) {
+        console.log(menus)
+        if (menus.length === 1) {
+            setIdMenu(menus[0].id)
+            setTelaMenu('menuItem')
+        }
+        setMenus(menus);
+    }
+
     function viewMenuById(idMenu: number) {
         setTelaMenu('menuItem')
         setIdMenu(idMenu)
@@ -50,7 +59,7 @@ export function Menu() {
         if (arUrlPath.length > 1) {
             const bussinesKey = arUrlPath[1];
             if (window.location.pathname)  {
-                api.get(`menu/${bussinesKey}`).then(response => setMenus(response.data))
+                api.get(`menu/${bussinesKey}`).then(response => prepareMenu(response.data))
             }
         }
         

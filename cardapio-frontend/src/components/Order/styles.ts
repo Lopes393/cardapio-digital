@@ -24,6 +24,8 @@ export const BoxHeaderOrder = styled.div`
 `;
 
 export const BoxTotalOrder = styled.div`
+    /* position: absolute;
+    bottom: 20%; */
     display:flex;
     flex-direction: column;
     justify-content: left;

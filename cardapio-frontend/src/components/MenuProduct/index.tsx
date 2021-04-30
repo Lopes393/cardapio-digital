@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
-import Lottie from 'react-lottie';
+import { imgProduct } from '../../service/ImgProduct';
 import {Container, BoxProduct, BoxProductList} from './styles';
 import animationData from './../../assets/lotties/hamburguer.json';
-import hotdog from './../../assets/img/hotdog.png';
 
 export function MenuProduct({idMenu}: any) {
     const [products, setProducts] = useState<any[]>([]);
@@ -28,23 +27,19 @@ export function MenuProduct({idMenu}: any) {
         }
         
     }
-
+    console.log(imgProduct);
     return (
         <Container>
-            {/* <BoxHamb>
-                <Lottie 
-                    options={defaultOptions}
-                    height={90}
-                    width={90}
-                />
-            </BoxHamb> */}
             <BoxProductList>
                 {products.map((item) => (
                     <div key={item.id}>
                         <BoxProduct>
-                            <img src={hotdog} alt=""/>
-                            <strong>{item.name}</strong>
-                            <p>{item.description}</p>
+                            <img src={imgProduct['pizza']} alt=""/>
+                            <div>
+                                <strong>{item.name}</strong>
+                                <p>{item.description}</p>
+                            </div>
+                            <pre>R$20,00</pre>
                         </BoxProduct>
                     </div>
                 ))}

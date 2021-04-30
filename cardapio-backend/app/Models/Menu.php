@@ -25,6 +25,7 @@ class Menu extends Model
         return self::select('menu.*')
             ->join('user as u', 'u.id', '=', 'menu.id_user')
             ->where('u.bussines_key', $bussinesKey)
+            ->where('menu.is_active', true)
             ->get()
         ;
     }

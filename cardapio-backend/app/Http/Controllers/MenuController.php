@@ -9,7 +9,7 @@ class MenuController extends Controller
 {
     public function index()
     {
-        return Menu::all();
+        return Menu::where('is_active', true)->get();
     }
 
     public function store(Request $request)
