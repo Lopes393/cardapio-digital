@@ -7,6 +7,7 @@ import btnMenu from './../../assets/img/icons/btnMenu.png';
 import btnPedido from './../../assets/img/icons/btnPedido.png';
 import animationData from './../../assets/lotties/hamburguer.json';
 import { MenuProduct } from '../MenuProduct';
+import { Order } from '../Order';
 
 
 export function Menu() {
@@ -64,14 +65,7 @@ export function Menu() {
                     width={90}
                 />
             </BoxHamb>
-            {telageral === "order" ? 
-                <BoxListOrder>
-                    {menus.map((item) => (
-                        <BoxMenu key={item.id}>
-                            <strong>outra tela</strong>
-                        </BoxMenu>
-                    ))}
-                </BoxListOrder> : 
+            {telageral === "order" ?   <Order /> : 
                 <BoxListMenu >
                     {telaMenu === "menu" ? 
                         menus.map((item) => (
