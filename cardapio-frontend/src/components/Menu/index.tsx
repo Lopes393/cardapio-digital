@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
 import Lottie from 'react-lottie';
 import {BoxButtom, BoxListMenu, Container, BoxMenu, BoxListOrder, BoxHamb} from './styles';
-import menu from './../../assets/img/menu.png';
-import btnMenu from './../../assets/img/btnMenu.svg';
-import btnPedido from './../../assets/img/btnPedido.svg';
+import menu from './../../assets/img/icons/menu.png';
+import btnMenu from './../../assets/img/icons/btnMenu.png';
+import btnPedido from './../../assets/img/icons/btnPedido.png';
 import animationData from './../../assets/lotties/hamburguer.json';
 
 

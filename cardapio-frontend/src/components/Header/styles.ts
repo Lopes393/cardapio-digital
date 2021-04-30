@@ -7,7 +7,7 @@ export const Container = styled.main`
     padding: .5rem 1rem;
     display: flex;
     flex-direction: row;
-    background-color: #6959CD;
+    background-color: #7C1519;
     margin-bottom: 15px;
     color: white;
     z-index: 15;

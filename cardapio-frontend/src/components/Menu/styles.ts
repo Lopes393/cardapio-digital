@@ -35,7 +35,7 @@ export const BoxButtom = styled.div`
         bottom: 0;
         height:70px;
         width: 100%;
-        background-color: #6959CD;
+        background-color: #7C1519;
         display: flex;
         flex-direction: row;
 
@@ -47,12 +47,17 @@ export const BoxButtom = styled.div`
 
         img {
             width: 50px;
+            transition: transform .2s;
+            &:hover {
+                transform: scale(1.1);
+            }
         }
+
 `;
 
 export const BoxMenu = styled.div`
     padding: 3em 4em;
-    background-color: #6959CD;
+    background-color: #7C1519;
     color: #fff;
     margin-bottom: 15px;
     display:flex;
@@ -74,7 +79,7 @@ export const BoxMenu = styled.div`
     transition: filter 0.2s;
 
     &:hover {
-        filter: brightness(0.9);
+        filter: brightness(0.8);
     }
 
     &:last-child {
