@@ -23,5 +23,5 @@ Route::get('user/{bussinesKey}', "App\Http\Controllers\UserController@show");
 
 Route::get('/menu/{bussinesKey}', "App\Http\Controllers\MenuController@show");
 Route::get('/product/{idMenu}', "App\Http\Controllers\ProductController@show");
-Route::get('followUp', "App\Http\Controllers\FollowUpController@index");
+Route::get('/followUp/{idProduct}', "App\Http\Controllers\FollowUpController@show");
 Route::get('payment', "App\Http\Controllers\PaymentController@index");

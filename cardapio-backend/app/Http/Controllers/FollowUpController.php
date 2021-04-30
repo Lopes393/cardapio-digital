@@ -16,8 +16,13 @@ class FollowUpController extends Controller
         return Follow_up::create($request->all());
     }
 
-    public function show($id)
+    public function show($idProduct)
     {
-        return Follow_up::where('id', $id)->first();
+        $followUp = \App\Models\Follow_up::getFollowUpByProduct($idProduct);
+        if (!$followUp) {
+            return response(['response' => 'Não existe produto'], 400);
+        }
+
+        return response($followUp);
     }
 }
