@@ -18,7 +18,7 @@ export const BoxProductList = styled.div`
 export const BoxProduct = styled.div`
     padding: 2em 2em;
     width: 90%;
-    background-color: #6959CD;
+    background-color: #7C1519;
     color: #fff;
     margin-bottom: 15px;
     display:flex;
@@ -40,7 +40,7 @@ export const BoxProduct = styled.div`
     transition: filter 0.2s;
 
     &:hover {
-        filter: brightness(0.9);
+        filter: brightness(0.8);
     }
 
     p {
