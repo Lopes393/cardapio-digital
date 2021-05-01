@@ -49,7 +49,7 @@ export function MenuProduct({idMenu, setTelaGeral}: any) {
                                 <strong>{item.name}</strong>
                                 <p>{item.description}</p>
                             </div>
-                            <pre>R$20,00</pre>
+                            <pre>{parseFloat(item?.value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</pre>
                         </BoxProduct>
                     </div>
                 ))}

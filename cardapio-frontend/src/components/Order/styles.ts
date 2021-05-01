@@ -15,7 +15,7 @@ export const Container = styled.div`
 
 export const BoxHeaderOrder = styled.div`
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 1.5rem;
@@ -98,10 +98,27 @@ export const BoxListOrder = styled.div`
                 justify-content: center;
                 align-items: center;
                 margin-left: 20px;
-                /* background-color: #444; */
             }
 
         }
+    }
+
+`;
+
+export const BoxHamb = styled.div`
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &:first-child {
+        margin-top: 60px;
+    }
+
+    div {
+        width: 200px !important;
+        height: 200px !important;
     }
 
 `;

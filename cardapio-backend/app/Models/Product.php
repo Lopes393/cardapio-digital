@@ -11,7 +11,7 @@ class Product extends Model
 
     protected $table = 'product';
     protected $primaryKey = 'id';
-    protected $fillable = ['id', 'name', 'description', 'is_active', 'id_menu'];
+    protected $fillable = ['id', 'name', 'description', 'is_active', 'id_menu', 'value'];
 
     public static function getProductsByMenu($idMenu)
     {

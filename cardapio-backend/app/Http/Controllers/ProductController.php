@@ -25,4 +25,14 @@ class ProductController extends Controller
 
         return response($product);
     }
+
+    public function getAdditional($idProduct)
+    {
+        $additional = \App\Models\Additional::getAdditionalsByProduct($idProduct);
+        if (!$additional) {
+            return response(['response' => 'Não existe additional'], 400);
+        }
+
+        return response($additional);
+    }
 }

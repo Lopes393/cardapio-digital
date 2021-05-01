@@ -9,6 +9,16 @@ export function Header() {
     useEffect(() => {
         getUser();
     }, [])
+
+    function formatPhone(phone: string) {
+        if (phone) {
+            let phoneFormated: string = '(';
+            phoneFormated += phone.substring(0, 2) + ') ';
+            phoneFormated += phone.substring(2, 7) + ' - ';
+            phoneFormated += phone.substring(7);
+            return phoneFormated;
+        }
+    }
     
     function getUser() {
         const arUrlPath = window.location.pathname.split('/');
@@ -26,7 +36,7 @@ export function Header() {
             </ImgBox>
             <UserBox>
                 <strong>{user?.bussines}</strong>
-                <p>{user?.phone}</p>
+                <p>{formatPhone(user?.phone)}</p>
             </UserBox>
         </Container>
     )

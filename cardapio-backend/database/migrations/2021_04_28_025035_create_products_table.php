@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('description')->nullable();
             $table->boolean('is_active')->default(true);
             $table->bigInteger('id_menu')->unsigned()->index();
+            $table->string('icon')->nullable();
+            $table->string('img')->nullable();
                     
             $table->timestamps();
             $table->foreign('id_menu')->references('id')->on('menu');

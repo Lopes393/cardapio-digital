@@ -20,13 +20,14 @@ export const BtnClose = styled.div`
         margin: 10px 10px;
     }
 `;
-
 export const ContentHeader = styled.div`
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
 
     strong {
         font-size: 1.2rem;
@@ -36,48 +37,45 @@ export const ContentHeader = styled.div`
         font-size: .7rem;
     }
 `;
-
 export const Title = styled.strong`
     margin: 7%;
 `;
-
 export const Content = styled.div`
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 100%;
 
     div {
-        padding: .5rem;
-        div {
-            display:flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            strong , p {
-                margin-right: 20px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        button {
+            padding: 10px;
+            border: none;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            &:first-child {
+                margin-right: 30px;
             }
 
-            img {
-                width: 20px;
-                height: 20px;
-                margin-right: 10%;
+            transition: filter 0.2s;
 
-                &:active {
-                    width: 25px;
-                    height: 25px;
-                }
-
-                transition: filter 0.2s;
-
-                &:hover {
-                    filter: brightness(0.85);
-                }
+            &:hover {
+                filter: brightness(0.85);
             }
         }
     }
+    input {
+        width: 100%;
+        background-color: #fff;
+        padding: 10px;
+        border: none;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        margin: 20px 0px;
+    }
+    
 
 `;
 
@@ -90,7 +88,7 @@ export const ContentAction = styled.div`
     margin-top: 10%;
     
     button:first-child {
-        margin-right: 5%;
+        margin-right: 15%;
         margin-left: 5%;
         background-color: #fff;
     }
@@ -116,9 +114,9 @@ export const ContentAction = styled.div`
 
 export const ContentTotal = styled.div`
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     width: 90%;
     margin-top: 10%;
 `;

@@ -9,32 +9,77 @@ import imgMenos from './../../assets/img/menos.png';
 import { Storage } from '../../service/Storage';
 
 export function ProductModal({status , product, setOpenModalProduct, setTelaGeral}: any) {
-    const [products, setProducts] = useState<any[]>([]);
+    const [additionals, setAdditionals] = useState<any[]>([]);
+    const [total, setTotal] = useState<number>(0);
 
     useEffect(() => {
-        getProducts()
+        getProducts();
     }, [status]) 
     
     function getProducts() {
-        setProducts([])
-        api.get(`product/${product.id}`).then(response => setProducts(response.data))
+        setAdditionals([])
+        api.get(`additional/${product.id}`).then((response) => {setAdditionals(response.data);calcularTotal();})
     }
     
     function setOpenModalProductAction(status: boolean) {
         setOpenModalProduct(status)
     }
+
     function alterTelaToOrder() {
         setTelaGeral('order')
     }
+
+    function getAdditional() {
+        let selecteds = [];
+        for(let item of additionals) {
+            if (item.qt_item > 0) {
+                selecteds.push(item);
+            }
+        }
+
+        return selecteds;
+    }
+
     function selectProduct() {
         let order  = Storage('order');
+        let productSave = product;
+        productSave.item = getAdditional();
+        console.log(productSave)
         if (order) {
-            order = [product, ...order] 
+            order = [productSave, ...order] 
         } else {
-            order = [product] 
+            order = [productSave] 
         }
         Storage('order', order);
         alterTelaToOrder() 
+    }
+
+    function alterQuantity(item: any, incre: boolean = true) {
+        if (incre) {
+            item.qt_item += 1;
+        } else {
+            if (item.qt_item >= 1) {
+                item.qt_item -= 1;
+            }
+        }
+
+        const itensCopy = Array.from(additionals);
+        itensCopy[additionals.indexOf(item)] = item;
+        setAdditionals(itensCopy);
+
+        calcularTotal();
+    }
+
+    function calcularTotal() {
+        let total = parseFloat(product.value);
+
+        for(let item of additionals) {
+            if (item.qt_item > 0) {
+                total += (item.qt_item * item.value); 
+            }
+        }
+
+        setTotal(total)
     }
 
     return (
@@ -54,22 +99,22 @@ export function ProductModal({status , product, setOpenModalProduct, setTelaGera
                 <p>{product?.description}</p>
             </ContentHeader>
             <Content>
-                {products.length > 0 ? <Title>Acrecimos</Title>: ''}
-                {products.map((item) => (
+                {additionals.length > 0 ? <Title>Acrecimos</Title>: ''}
+                {additionals.map((item) => (
                     <div key={item.id}>
                         <div>
-                            <img src={imgProduct['pizza']} alt=""/>
-                            <strong>Bacon</strong>
-                            <p>R$2,00</p>
-                            <img src={imgMenos} alt=""/>
-                            <p>1</p>
-                            <img src={imgMais} alt=""/>
+                            <img src={imgProduct[`hotdog`]} alt=""/>
+                            <strong>{item?.name}</strong>
+                            <p>{parseFloat(item?.value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                            <img src={imgMenos} onClick={()=> alterQuantity(item, false)} />
+                            <p>{item?.qt_item}</p>
+                            <img src={imgMais} onClick={()=> alterQuantity(item)} />
                         </div>
                     </div>
                 ))}
             </Content>
             <ContentTotal>
-                <strong>Total: R$25,00</strong>
+                <strong>Total: {total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
 
             </ContentTotal>
 
