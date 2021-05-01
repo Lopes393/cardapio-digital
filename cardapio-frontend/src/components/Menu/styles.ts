@@ -23,13 +23,6 @@ export const BoxListOrder = styled.div`
     margin: 0 auto;
 `;
 
-export const BoxHamb = styled.div`
-    position: fixed;
-    z-index: 10;
-    margin-top: 90px;
-
-`;
-
 export const BoxButtom = styled.div`
         position:fixed;
         bottom: 0;
@@ -72,7 +65,7 @@ export const BoxMenu = styled.div`
     }
 
     &:active {
-        background-color: #2f2570;
+        background-color: #360707;
         box-shadow: none;
     }
 

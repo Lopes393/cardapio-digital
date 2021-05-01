@@ -1,10 +1,20 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../service/api'
-import {Container, ImgBox, UserBox} from './styles'
+import {Container, ImgBox, UserBox, BoxHamb} from './styles'
 import bussines from './../../assets/img/bussines.svg';
+import animationData from './../../assets/lotties/hamburguer.json';
+import Lottie from 'react-lottie';
 
 export function Header() {
     const [user, setUser] = useState<any>({});
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+            }
+        }
 
     useEffect(() => {
         getUser();
@@ -31,9 +41,17 @@ export function Header() {
 
     return (
         <Container>
-            <ImgBox>
+           
+            {<BoxHamb>
+                <Lottie 
+                    options={defaultOptions}
+                    height={60}
+                    width={90}
+                />
+            </BoxHamb>}
+            {/* <ImgBox>
                 <img src={bussines} alt=""/>   
-            </ImgBox>
+            </ImgBox> */}
             <UserBox>
                 <strong>{user?.bussines}</strong>
                 <p>{formatPhone(user?.phone)}</p>

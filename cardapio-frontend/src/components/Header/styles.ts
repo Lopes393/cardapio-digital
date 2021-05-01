@@ -33,3 +33,9 @@ export const UserBox = styled.div`
         margin-top: 10px;
     }
 `;
+
+export const BoxHamb = styled.div`
+    z-index: 5;
+    margin-top: 1px;
+
+`;

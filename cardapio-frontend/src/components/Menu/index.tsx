@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
-import Lottie from 'react-lottie';
-import {BoxButtom, BoxListMenu, Container, BoxMenu, BoxListOrder, BoxHamb} from './styles';
+import {BoxButtom, BoxListMenu, Container, BoxMenu, BoxListOrder} from './styles';
 import menu from './../../assets/img/icons/menu.png';
 import btnMenu from './../../assets/img/icons/btnMenu.png';
 import btnPedido from './../../assets/img/icons/btnPedido.png';
-import animationData from './../../assets/lotties/hamburguer.json';
 import { MenuProduct } from '../MenuProduct';
 import { Order } from '../Order';
 
@@ -14,18 +12,7 @@ export function Menu() {
     const [menus, setMenus] = useState<any[]>([]);
     const [telageral, setTelaGeral] = useState<string>('menu');
     const [telaMenu, setTelaMenu] = useState<string>('menu');
-    const [idMenu, setIdMenu] = useState<number>(0);
-
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
-
-    
+    const [idMenu, setIdMenu] = useState<number>(0);    
 
     useEffect(() => {
         getMenus();
@@ -66,14 +53,6 @@ export function Menu() {
 
     return (
         <Container>
-            {telageral === "menu" ? 
-            <BoxHamb>
-                <Lottie 
-                    options={defaultOptions}
-                    height={90}
-                    width={90}
-                />
-            </BoxHamb> : '' }
             {telageral === "order" ?   <Order /> : 
                 <BoxListMenu >
                     {telaMenu === "menu" ? 
