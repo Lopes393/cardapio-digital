@@ -89,6 +89,7 @@ export function Menu() {
                 key={item.id}
                 onClick={() => {
                   viewMenuById(item.id);
+                  setTelaMenu("product");
                 }}
               >
                 <img src={menu} alt="" />
@@ -102,7 +103,7 @@ export function Menu() {
       )}
       <BoxButtom>
         <div onClick={alterTela}>
-          <img src={telageral === "menu" ? btnMenuOpen : btnMenu} alt="" />
+          <img src={telaMenu === "product" ? btnMenuOpen : btnMenu} alt="" />
         </div>
         <div onClick={() => setTelaGeral("order")}>
           <img src={btnPedido} alt="" />
