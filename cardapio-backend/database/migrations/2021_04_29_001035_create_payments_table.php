@@ -17,7 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('description')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->decimal('value_addition', 8, 2)->nullable();
+            $table->decimal('value_addition', 13, 2)->nullable();
             $table->bigInteger('id_user')->unsigned()->index();
                     
             $table->timestamps();
