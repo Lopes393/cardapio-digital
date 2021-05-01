@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
 import Lottie from 'react-lottie';
-import { Container, BoxListOrder, BoxHeaderOrder, BoxTotalOrder, BoxHamb } from './styles';
+import { Container, BoxListOrder, BoxHeaderOrder, BoxTotalOrder, BoxHamb, BtnClose } from './styles';
 import animationData from './../../assets/lotties/duvida.json';
 import animationDataDelivery from './../../assets/lotties/delivery.json';
 import { Storage } from '../../service/Storage';
 import { OrderModal } from '../OrderModal';
+import remove from './../../assets/img/remove.png';
 
 
 export function Order() {
@@ -55,13 +56,16 @@ export function Order() {
         
         setOrder(order)
         calcularOrder(order)
-        console.log(order)
     }
 
     function openModalFinalizar() {
         setOpenModalOrder(true)
         // Storage('order', false, false, true);
-        getOrder();
+        // getOrder();
+    }
+
+    function removeItem(item: any) {
+
     }
 
     return (
@@ -94,6 +98,9 @@ export function Order() {
                     <ul>
                         {order.map((item) => (
                             <li key={item.id}>
+                                <BtnClose>
+                                    <img src={remove} alt="" onClick={()=> removeItem(item)}/>
+                                </BtnClose>
                                 <hr/>
                                 <div>
                                     <strong>{item?.name}</strong>

@@ -41,17 +41,14 @@ export function Header() {
 
     return (
         <Container>
-           
-            {<BoxHamb>
+            <BoxHamb>
                 <Lottie 
                     options={defaultOptions}
                     height={60}
                     width={90}
                 />
-            </BoxHamb>}
-            {/* <ImgBox>
-                <img src={bussines} alt=""/>   
-            </ImgBox> */}
+            </BoxHamb>
+
             <UserBox>
                 <strong>{user?.bussines}</strong>
                 <p>{formatPhone(user?.phone)}</p>

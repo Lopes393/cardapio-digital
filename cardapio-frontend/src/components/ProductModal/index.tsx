@@ -43,13 +43,15 @@ export function ProductModal({status , product, setOpenModalProduct, setTelaGera
     function selectProduct() {
         let order  = Storage('order');
         let productSave = product;
+        
         productSave.item = getAdditional();
-        console.log(productSave)
+
         if (order) {
             order = [productSave, ...order] 
         } else {
             order = [productSave] 
         }
+
         Storage('order', order);
         alterTelaToOrder() 
     }

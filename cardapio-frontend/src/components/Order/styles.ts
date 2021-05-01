@@ -122,3 +122,16 @@ export const BoxHamb = styled.div`
     }
 
 `;
+
+export const BtnClose = styled.div`
+    position: absolute;
+    right: 0;
+
+    img {
+        width: 13px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 10px 10px;
+    }
+`;
