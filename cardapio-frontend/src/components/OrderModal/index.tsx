@@ -3,6 +3,7 @@ import {BtnClose, Container, ContentHeader, Content, ContentAction, ContentTotal
 import cancel from './../../assets/img/cancel.png';
 import Modal from 'react-modal';
 import { Storage } from '../../service/Storage';
+import { Message } from '../../service/Message';
 
 export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: any) {
     const [totalProducts, setTotalProducts] = useState<number>(0);
@@ -24,8 +25,21 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
     }
 
     function sendOrder() {
+        const config: any = {
+            address,
+            thing,
+            isCard,
+            isDelivery,
+            totalDelivery,
+            totalProducts
+        }
+        Storage('config', config, true);
         Storage('address', address, true);
         Storage('thing', thing, true);
+
+        Message(config, Storage('order'))
+
+        
     }
 
     function calcularTotal() {
