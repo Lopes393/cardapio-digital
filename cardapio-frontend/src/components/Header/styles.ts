@@ -38,5 +38,4 @@ export const BoxHamb = styled.div`
     z-index: 5;
     margin-top: 1px;
     margin-right: 5%;
-
 `;

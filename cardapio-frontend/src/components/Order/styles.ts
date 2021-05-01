@@ -132,6 +132,6 @@ export const BtnClose = styled.div`
         position: absolute;
         top: 0;
         right: 0;
-        margin: 10px 10px;
+        margin: 0px 20px;
     }
 `;

@@ -32,18 +32,20 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
         let order = Storage('order');
         let totalDelivery = parseFloat(Storage('delivery'));
         let totalProduct = 0;
-
-        for(let productInOrder of order) {
-            totalProduct += parseFloat(productInOrder.value);
-
-            for(let additional of productInOrder.item) {
-                totalProduct += parseFloat(additional.value);
+        if (order) {
+            
+            for(let productInOrder of order) {
+                totalProduct += parseFloat(productInOrder.value);
+    
+                for(let additional of productInOrder.item) {
+                    totalProduct += parseFloat(additional.value);
+                }
+    
             }
-
+    
+            setTotalProducts(totalProduct)
+            setTotalDelivery(totalDelivery)
         }
-
-        setTotalProducts(totalProduct)
-        setTotalDelivery(totalDelivery)
     }
 
     function thingChange(event: any) {    

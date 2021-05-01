@@ -15,6 +15,7 @@ export const BoxListMenu = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    margin-top: 10%;
 `;
 
 export const BoxListOrder = styled.div`
