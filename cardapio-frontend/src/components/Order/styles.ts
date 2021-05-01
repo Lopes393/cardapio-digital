@@ -133,5 +133,10 @@ export const BtnClose = styled.div`
         top: 0;
         right: 0;
         margin: 0px 20px;
+
+
+        &:hover {
+            width: 16px;
+        }
     }
 `;

@@ -65,7 +65,11 @@ export function Order() {
     }
 
     function removeItem(item: any) {
-
+        const copyOrder = order;
+        copyOrder.splice(copyOrder.indexOf(item), 1);
+        setOrder(copyOrder);
+        Storage('order', copyOrder);
+        calcularOrder(copyOrder);
     }
 
     return (

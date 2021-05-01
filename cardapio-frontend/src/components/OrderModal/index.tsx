@@ -86,7 +86,7 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
                 {isCard === 'money' ? 
                     <>
                         <input type="text" placeholder="precisa de troco?" value={thing} onChange={thingChange}/>
-                        <p>ex: troco pra 50 ou 50</p>
+                        <p>Ex: troco pra 50 ou não</p>
                     </>
                 : '' }
 
@@ -109,8 +109,10 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
 
             <ContentTotal>
                 <strong>Produtos: {totalProducts.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
-                <strong>Frete: {totalDelivery.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
-                <strong>Total: {(totalDelivery + totalProducts).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
+                {isDelivery === 'delivery' ? 
+                    <strong>Frete: {totalDelivery.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
+                : ''}
+                <strong>Total: {(totalProducts + ( isDelivery === 'delivery' ? totalDelivery : 0)).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
             </ContentTotal>
 
             <ContentAction>
