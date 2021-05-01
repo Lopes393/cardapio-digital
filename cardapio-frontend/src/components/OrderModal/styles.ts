@@ -75,7 +75,19 @@ export const Content = styled.div`
         border-radius: 5px;
         margin: 20px 0px;
     }
+
+    .active {
+        background-color: #28a265 !important;
+        color: #fff;
+        border: none;
+    }
     
+    p {
+        font-size: .8rem;
+        align-items: left;
+        width: 100%;
+        margin-top: -10px;
+    }
 
 `;
 
@@ -110,6 +122,8 @@ export const ContentAction = styled.div`
             filter: brightness(0.85);
         }
     }
+
+
 `;
 
 export const ContentTotal = styled.div`

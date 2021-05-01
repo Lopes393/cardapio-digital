@@ -13,6 +13,7 @@ import btnMenuOpen from "./../../assets/img/icons/menuOpen.png";
 import btnPedido from "./../../assets/img/icons/btnPedido.png";
 import { MenuProduct } from "../MenuProduct";
 import { Order } from "../Order";
+import { Storage } from "../../service/Storage";
 
 export function Menu() {
   const [menus, setMenus] = useState<any[]>([]);
@@ -37,12 +38,14 @@ export function Menu() {
       setIdMenu(menus[0].id);
       setTelaMenu("menuItem");
     }
+    Storage('delivery', menus[0].value_delivery);
     setMenus(menus);
   }
 
-  function viewMenuById(idMenu: number) {
+  function viewMenuById(menu: any) {
     setTelaMenu("menuItem");
-    setIdMenu(idMenu);
+    Storage('delivery', menu.value_delivery);
+    setIdMenu(menu.id);
   }
 
   function getMenus() {
@@ -69,7 +72,7 @@ export function Menu() {
               <BoxMenu
                 key={item.id}
                 onClick={() => {
-                  viewMenuById(item.id);
+                  viewMenuById(item);
                   setTelaMenu("product");
                 }}
               >

@@ -5,18 +5,17 @@ import Modal from 'react-modal';
 import { Storage } from '../../service/Storage';
 
 export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: any) {
-    const [additionals, setAdditionals] = useState<any[]>([]);
-    const [total, setTotal] = useState<number>(0);
     const [totalProducts, setTotalProducts] = useState<number>(0);
     const [totalDelivery, setTotalDelivery] = useState<number>(0);
 
-    const [isCard, setIsCard] = useState<string>('');
+    const [isCard, setIsCard] = useState<string>('money');
     const [isDelivery, setIsDelivery] = useState<string>('');
 
-    const [troco, setTroco] = useState<string>('');
-    const [endereco, setEndereco] = useState<string>('');
+    const [thing, setThing] = useState<string>('');
+    const [address, setAddress] = useState<string>('');
 
     useEffect(() => {
+        calcularTotal();
     }, [status]) 
     
     
@@ -25,25 +24,36 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
     }
 
     function sendOrder() {
-
+        Storage('address', address, true);
+        Storage('thing', thing, true);
     }
 
     function calcularTotal() {
-        let total = parseFloat(product.value);
+        let order = Storage('order');
+        let totalDelivery = parseFloat(Storage('delivery'));
+        let totalProduct = 0;
 
-        for(let item of additionals) {
-            if (item.qt_item > 0) {
-                total += (item.qt_item * item.value); 
+        for(let productInOrder of order) {
+            totalProduct += parseFloat(productInOrder.value);
+
+            for(let additional of productInOrder.item) {
+                totalProduct += parseFloat(additional.value);
             }
+
         }
 
-        setTotal(total)
+        setTotalProducts(totalProduct)
+        setTotalDelivery(totalDelivery)
     }
 
-    function  handleChange(event: any) {    
-        setTroco(event.target.value); 
+    function thingChange(event: any) {    
+        setThing(event.target.value); 
     }
-    // Storage('troco', event.target.value, true)
+
+    function addressChange(event: any) {    
+        setAddress(event.target.value); 
+    }
+
 
     return (
         <Container>
@@ -54,34 +64,51 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
                 ariaHideApp={false}
                 className="react-modal-content"
             >
+
             <BtnClose>
                 <img src={cancel} alt="" onClick={()=> setOpenModalProductAction(false)}/>
             </BtnClose>
+
             <ContentHeader>
                 <strong>Informações de entrega e pagamento</strong>
             </ContentHeader>
+
             <Content>
+
                 <div>
-                    {isCard === 'card'? <button onClick={()=> setIsCard('card')}>Cartão</button> : <button onClick={()=> setIsCard('card')}>Cartão</button>}
-                    {isCard === 'money'? <button onClick={()=> setIsCard('money')}>Dinheiro</button> : <button onClick={()=> setIsCard('money')}>Dinheiro</button>}
+                    {isCard === 'card' ? <button className="active" onClick={()=> setIsCard('card')}>Cartão</button> : <button onClick={()=> setIsCard('card')}>Cartão</button>}
+                    {isCard === 'money' ? <button className="active" onClick={()=> setIsCard('money')}>Dinheiro</button> : <button onClick={()=> setIsCard('money')}>Dinheiro</button>}
                 </div>
+
+
                 {isCard === 'money' ? 
-                    <input type="text" placeholder="precisa de troco?" value={troco} onChange={handleChange}/>
+                    <>
+                        <input type="text" placeholder="precisa de troco?" value={thing} onChange={thingChange}/>
+                        <p>ex: troco pra 50 ou 50</p>
+                    </>
                 : '' }
-                {troco !== '' || isCard == ''? 
+
+                {thing !== '' || isCard == 'card'? 
                 <div>
-                    {isDelivery === 'delivery' ? <button onClick={()=> setIsDelivery('delivery')}>Entregar</button> : <button onClick={()=> setIsDelivery('delivery')}>Cartão</button>}
-                    {isDelivery === 'goway' ? <button onClick={()=> setIsDelivery('goway')}>Vou buscar</button> : <button onClick={()=> setIsDelivery('goway')}>Dinheiro</button>}
+                    {isDelivery === 'delivery' ? <button className="active"onClick={()=> setIsDelivery('delivery')}>Entregar</button> : <button onClick={()=> setIsDelivery('delivery')}>Entregar</button>}
+                    {isDelivery === 'goway' ? <button className="active" onClick={()=> setIsDelivery('goway')}>Vou buscar</button> : <button onClick={()=> setIsDelivery('goway')}>Vou buscar</button>}
                 </div>
                 : '' }
+                
                 {isDelivery === 'delivery' ? 
-                    <input type="text" placeholder="Qual o seu endereço?"/>
+                    <>
+                        <input type="text" placeholder="Qual o seu endereço?" value={address} onChange={addressChange}/>
+                        <p>Ex: Rua M19 setor Central n° 14</p>
+                    </>
                 : '' }
+
             </Content>
+
+
             <ContentTotal>
                 <strong>Produtos: {totalProducts.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
                 <strong>Frete: {totalDelivery.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
-                <strong>Total: {total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
+                <strong>Total: {(totalDelivery + totalProducts).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
             </ContentTotal>
 
             <ContentAction>

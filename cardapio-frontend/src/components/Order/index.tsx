@@ -59,8 +59,8 @@ export function Order() {
     }
 
     function openModalFinalizar() {
-        // setOpenModalOrder(true)
-        Storage('order', false, false, true);
+        setOpenModalOrder(true)
+        // Storage('order', false, false, true);
         getOrder();
     }
 
