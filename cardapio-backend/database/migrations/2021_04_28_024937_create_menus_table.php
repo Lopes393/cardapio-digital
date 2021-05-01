@@ -16,7 +16,7 @@ class CreateMenusTable extends Migration
         Schema::create('menu', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('description')->nullable();
-            $table->decimal('value_delivery', 8, 2)->nullable();
+            $table->decimal('value_delivery', 13, 2)->nullable();
             $table->boolean('is_active')->default(true);
             $table->bigInteger('id_user')->unsigned()->index();
                     
