@@ -3,9 +3,12 @@ import { api } from '../../service/api';
 import { imgProduct } from '../../service/ImgProduct';
 import {Container, BoxProduct, BoxProductList} from './styles';
 import animationData from './../../assets/lotties/hamburguer.json';
+import { ProductModal } from '../ProductModal';
 
 export function MenuProduct({idMenu}: any) {
     const [products, setProducts] = useState<any[]>([]);
+    const [product, setProduct] = useState<any>({});
+    const [openModalProduct, setOpenModalProduct] = useState<boolean>(false);
 
     const defaultOptions = {
         loop: true,
@@ -20,20 +23,27 @@ export function MenuProduct({idMenu}: any) {
         getProducts();
     }, [])
 
-    
+    function openModal(item: any) {
+        console.log("modal aberto")
+        setOpenModalProduct(true)
+        setProduct(item)
+        
+    }
+
     function getProducts() {
         if (idMenu)  {
             api.get(`product/${idMenu}`).then(response => setProducts(response.data))
         }
         
     }
-    console.log(imgProduct);
+
     return (
         <Container>
+            <ProductModal status={openModalProduct} product={product} setOpenModalProduct={setOpenModalProduct}/>
             <BoxProductList>
                 {products.map((item) => (
                     <div key={item.id}>
-                        <BoxProduct>
+                        <BoxProduct onClick={() => {openModal(item)}}>
                             <img src={imgProduct['pizza']} alt=""/>
                             <div>
                                 <strong>{item.name}</strong>

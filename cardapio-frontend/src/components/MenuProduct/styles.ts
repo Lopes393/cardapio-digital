@@ -60,14 +60,14 @@ export const BoxProduct = styled.div`
         align-items: center;
         padding: 1.5% 1% 1% 1%;
         font-size: 1.1rem;
-        border-bottom: 2px solid #6b130c;
-        border-top: 2px solid #6b130c;
+        /* border-bottom: 2px solid #61380B;
+        border-top: 2px solid #61380B; */
         border-radius: 15px;
-        margin-left: 5px
+        margin-left: 5px;
     }
 
     &:active {
-        background-color: #2f2570;
+        background-color: #7C151951;
         box-shadow: none;
     }
 
