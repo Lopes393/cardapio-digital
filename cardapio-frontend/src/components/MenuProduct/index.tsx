@@ -24,7 +24,6 @@ export function MenuProduct({idMenu, setTelaGeral}: any) {
     }, [])
 
     function openModal(item: any) {
-        console.log("modal aberto")
         setOpenModalProduct(true)
         setProduct(item)
         
