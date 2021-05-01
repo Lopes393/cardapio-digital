@@ -1,27 +1,16 @@
 import { useEffect, useState } from 'react';
-// import { api } from '../../service/api';
 import {BtnClose, Container, ContentHeader, Content, ContentAction, ContentTotal, Title} from './styles';
-// import animationData from './../../assets/lotties/hamburguer.json';
 import cancel from './../../assets/img/cancel.png';
 import Modal from 'react-modal';
 import { api } from '../../service/api';
 import { imgProduct } from '../../service/ImgProduct';
 import imgMais from './../../assets/img/mais.png';
 import imgMenos from './../../assets/img/menos.png';
+import { Storage } from '../../service/Storage';
 
-export function ProductModal({status , product, setOpenModalProduct}: any) {
+export function ProductModal({status , product, setOpenModalProduct, setTelaGeral}: any) {
     const [products, setProducts] = useState<any[]>([]);
 
-    // const [newStatus, setNewStatus] = useState<boolean>(status ?? false);
-    // console.log(setOpenModalProduct)
-    // const defaultOptions = {
-    //     loop: true,
-    //     autoplay: true,
-    //     animationData: animationData,
-    //     rendererSettings: {
-    //         preserveAspectRatio: "xMidYMid slice"
-    //     }
-    // };
     useEffect(() => {
         getProducts()
     }, [status]) 
@@ -33,6 +22,19 @@ export function ProductModal({status , product, setOpenModalProduct}: any) {
     
     function setOpenModalProductAction(status: boolean) {
         setOpenModalProduct(status)
+    }
+    function alterTelaToOrder() {
+        setTelaGeral('order')
+    }
+    function selectProduct() {
+        let order  = Storage('order');
+        if (order) {
+            order = [product, ...order] 
+        } else {
+            order = [product] 
+        }
+        Storage('order', order);
+        alterTelaToOrder() 
     }
 
     return (
@@ -73,7 +75,7 @@ export function ProductModal({status , product, setOpenModalProduct}: any) {
 
             <ContentAction>
                     <button onClick={()=> setOpenModalProductAction(false)}>Cancelar</button>
-                    <button>Selecionar</button>
+                    <button onClick={()=> selectProduct()}>Selecionar</button>
             </ContentAction>
             </Modal>
         </Container>

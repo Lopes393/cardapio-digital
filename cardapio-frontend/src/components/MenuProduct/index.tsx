@@ -5,11 +5,11 @@ import {Container, BoxProduct, BoxProductList} from './styles';
 import animationData from './../../assets/lotties/hamburguer.json';
 import { ProductModal } from '../ProductModal';
 
-export function MenuProduct({idMenu}: any) {
+export function MenuProduct({idMenu, setTelaGeral}: any) {
     const [products, setProducts] = useState<any[]>([]);
     const [product, setProduct] = useState<any>({});
     const [openModalProduct, setOpenModalProduct] = useState<boolean>(false);
-
+    
     const defaultOptions = {
         loop: true,
         autoplay: true,
@@ -39,7 +39,7 @@ export function MenuProduct({idMenu}: any) {
 
     return (
         <Container>
-            <ProductModal status={openModalProduct} product={product} setOpenModalProduct={setOpenModalProduct}/>
+            <ProductModal status={openModalProduct} product={product} setOpenModalProduct={setOpenModalProduct} setTelaGeral={setTelaGeral}/>
             <BoxProductList>
                 {products.map((item) => (
                     <div key={item.id}>

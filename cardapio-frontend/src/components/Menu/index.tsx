@@ -40,7 +40,6 @@ export function Menu() {
     }
 
     function prepareMenu(menus: any[]) {
-        console.log(menus)
         if (menus.length === 1) {
             setIdMenu(menus[0].id)
             setTelaMenu('menuItem')
@@ -67,13 +66,14 @@ export function Menu() {
 
     return (
         <Container>
+            {telageral === "menu" ? 
             <BoxHamb>
                 <Lottie 
                     options={defaultOptions}
                     height={90}
                     width={90}
                 />
-            </BoxHamb>
+            </BoxHamb> : '' }
             {telageral === "order" ?   <Order /> : 
                 <BoxListMenu >
                     {telaMenu === "menu" ? 
@@ -84,7 +84,7 @@ export function Menu() {
                             </BoxMenu> 
 
                         ))
-                    : <MenuProduct idMenu={idMenu}/> }
+                    : <MenuProduct idMenu={idMenu} setTelaGeral={setTelaGeral}/> }
                 </BoxListMenu>
                 }
             <BoxButtom>
