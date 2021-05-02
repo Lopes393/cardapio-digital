@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { api } from '../../service/api'
 import {Container, ImgBox, UserBox, BoxHamb} from './styles'
 import bussines from './../../assets/img/bussines.svg';
-import animationData from './../../assets/lotties/hamburguer.json';
+import animationData from './../../assets/lotties/food.json';
 import Lottie from 'react-lottie';
 
 export function Header() {
@@ -45,7 +45,7 @@ export function Header() {
                 <Lottie 
                     options={defaultOptions}
                     height={60}
-                    width={90}
+                    width={60}
                 />
             </BoxHamb>
 
