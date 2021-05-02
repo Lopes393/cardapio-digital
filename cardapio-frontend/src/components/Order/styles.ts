@@ -105,24 +105,6 @@ export const BoxListOrder = styled.div`
 
 `;
 
-export const BoxHamb = styled.div`
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    &:first-child {
-        margin-top: 60px;
-    }
-
-    div {
-        width: 200px !important;
-        height: 200px !important;
-    }
-
-`;
-
 export const BtnClose = styled.div`
     position: absolute;
     right: 0;
