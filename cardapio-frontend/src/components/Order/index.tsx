@@ -1,37 +1,17 @@
 import { useEffect, useState } from 'react';
-import { api } from '../../service/api';
-import Lottie from 'react-lottie';
-import { Container, BoxListOrder, BoxHeaderOrder, BoxTotalOrder, BoxHamb, BtnClose } from './styles';
+import { Container, BoxListOrder, BoxHeaderOrder, BoxTotalOrder, BtnClose } from './styles';
 import animationData from './../../assets/lotties/duvida.json';
 import animationDataDelivery from './../../assets/lotties/delivery.json';
 import { Storage } from '../../service/Storage';
 import { OrderModal } from '../OrderModal';
 import remove from './../../assets/img/remove.png';
+import { OrderClear } from '../OrderClear';
 
 
 export function Order() {
     const [order, setOrder] = useState<any[]>([]);
     const [total, setTotal] = useState<number>(0);
     const [openModalOrder, setOpenModalOrder] = useState<boolean>(false);
-
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
-    const defaultOptionsDelivery = {
-        loop: true,
-        autoplay: true,
-        animationData: animationDataDelivery,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
-
-    
 
     useEffect(() => {
         getOrder();
@@ -60,12 +40,14 @@ export function Order() {
 
     function openModalFinalizar() {
         setOpenModalOrder(true)
-        // Storage('order', false, false, true);
-        // getOrder();
     }
 
     function removeItem(item: any) {
-
+        const copyOrder = order;
+        copyOrder.splice(copyOrder.indexOf(item), 1);
+        setOrder(copyOrder);
+        Storage('order', copyOrder);
+        calcularOrder(copyOrder);
     }
 
     return (
@@ -73,26 +55,10 @@ export function Order() {
             <OrderModal status={openModalOrder} setOpenModalOrder={setOpenModalOrder}/>
                 <BoxListOrder>
                     <BoxHeaderOrder>
-                    {order.length > 0 ?
+                    {total > 0 ?
                         <strong>Itens do Pedido</strong>
-                    : <>
-                        <BoxHamb>
-                            <Lottie 
-                                options={defaultOptions}
-                                height={90}
-                                width={90}
-                            />
-                        </BoxHamb>
-                        <strong>Você ainda não selecionou um produto.</strong>
-                        <p>Bora fazer um pedido de algo delicioso</p>
-                        <BoxHamb>
-                            <Lottie 
-                                    options={defaultOptionsDelivery}
-                                    height={90}
-                                    width={90}
-                                />
-                        </BoxHamb>
-                    </>
+                    :
+                        <OrderClear />
                     }
                     </BoxHeaderOrder>
                     <ul>

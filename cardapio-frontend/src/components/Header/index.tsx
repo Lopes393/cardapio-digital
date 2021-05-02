@@ -4,6 +4,7 @@ import {Container, ImgBox, UserBox, BoxHamb} from './styles'
 import bussines from './../../assets/img/bussines.svg';
 import animationData from './../../assets/lotties/food.json';
 import Lottie from 'react-lottie';
+import { Storage } from '../../service/Storage';
 
 export function Header() {
     const [user, setUser] = useState<any>({});
@@ -29,13 +30,18 @@ export function Header() {
             return phoneFormated;
         }
     }
+
+    function setUserAndPhone(dados: any){
+        setUser(dados)
+        Storage('phone', dados.phone);
+    }
     
     function getUser() {
         const arUrlPath = window.location.pathname.split('/');
         
         if (arUrlPath.length > 1) {
             const bussinesKey = arUrlPath[1];
-            api.get(`user/${bussinesKey}`).then(response => setUser(response.data))
+            api.get(`user/${bussinesKey}`).then(response => setUserAndPhone(response.data))
         }
     }
 

@@ -2,6 +2,7 @@
   "name": "cardapio-frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://cardapio.siagesc.com.br/",
   "dependencies": {
     "@types/react-lottie": "^1.2.5",
     "axios": "^0.21.1",

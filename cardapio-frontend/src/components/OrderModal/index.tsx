@@ -3,6 +3,7 @@ import {BtnClose, Container, ContentHeader, Content, ContentAction, ContentTotal
 import cancel from './../../assets/img/cancel.png';
 import Modal from 'react-modal';
 import { Storage } from '../../service/Storage';
+import { Message } from '../../service/Message';
 
 export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: any) {
     const [totalProducts, setTotalProducts] = useState<number>(0);
@@ -16,7 +17,21 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
 
     useEffect(() => {
         calcularTotal();
+        getInfoLocal();
     }, [status]) 
+
+    function getInfoLocal() {
+        let adress = Storage('address');
+        let thing = Storage('thing');
+
+        if (adress) {
+            setAddress(adress);
+        }
+
+        if (thing) {
+            setThing(thing);
+        }
+    }
     
     
     function setOpenModalProductAction(status: boolean) {
@@ -24,26 +39,41 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
     }
 
     function sendOrder() {
+        const config: any = {
+            address,
+            thing,
+            isCard,
+            isDelivery,
+            totalDelivery,
+            totalProducts
+        }
+        Storage('config', config, true);
         Storage('address', address, true);
         Storage('thing', thing, true);
+
+        Message(config, Storage('order'))
+
+        
     }
 
     function calcularTotal() {
         let order = Storage('order');
         let totalDelivery = parseFloat(Storage('delivery'));
         let totalProduct = 0;
-
-        for(let productInOrder of order) {
-            totalProduct += parseFloat(productInOrder.value);
-
-            for(let additional of productInOrder.item) {
-                totalProduct += parseFloat(additional.value);
+        if (order) {
+            
+            for(let productInOrder of order) {
+                totalProduct += parseFloat(productInOrder.value);
+    
+                for(let additional of productInOrder.item) {
+                    totalProduct += parseFloat(additional.value);
+                }
+    
             }
-
+    
+            setTotalProducts(totalProduct)
+            setTotalDelivery(totalDelivery)
         }
-
-        setTotalProducts(totalProduct)
-        setTotalDelivery(totalDelivery)
     }
 
     function thingChange(event: any) {    
@@ -84,7 +114,7 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
                 {isCard === 'money' ? 
                     <>
                         <input type="text" placeholder="precisa de troco?" value={thing} onChange={thingChange}/>
-                        <p>ex: troco pra 50 ou 50</p>
+                        <p>Ex: troco pra 50 ou não</p>
                     </>
                 : '' }
 
@@ -107,8 +137,10 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
 
             <ContentTotal>
                 <strong>Produtos: {totalProducts.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
-                <strong>Frete: {totalDelivery.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
-                <strong>Total: {(totalDelivery + totalProducts).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
+                {isDelivery === 'delivery' ? 
+                    <strong>Frete: {totalDelivery.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
+                : ''}
+                <strong>Total: {(totalProducts + ( isDelivery === 'delivery' ? totalDelivery : 0)).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
             </ContentTotal>
 
             <ContentAction>

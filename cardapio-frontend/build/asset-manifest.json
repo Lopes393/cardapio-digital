@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/static/js/main.60233130.chunk.js",
+    "main.js.map": "/static/js/main.60233130.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c6e5e456.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c6e5e456.js.map",
+    "static/js/2.f111d192.chunk.js": "/static/js/2.f111d192.chunk.js",
+    "static/js/2.f111d192.chunk.js.map": "/static/js/2.f111d192.chunk.js.map",
+    "index.html": "/index.html",
+    "static/js/2.f111d192.chunk.js.LICENSE.txt": "/static/js/2.f111d192.chunk.js.LICENSE.txt",
+    "static/media/hotdog.31e3e413.png": "/static/media/hotdog.31e3e413.png",
+    "static/media/mais.a0162b51.png": "/static/media/mais.a0162b51.png",
+    "static/media/menos.f7328416.png": "/static/media/menos.f7328416.png",
+    "static/media/pizza.f9602385.png": "/static/media/pizza.f9602385.png",
+    "static/media/remove.3c662b75.png": "/static/media/remove.3c662b75.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c6e5e456.js",
+    "static/js/2.f111d192.chunk.js",
+    "static/js/main.60233130.chunk.js"
+  ]
+}
