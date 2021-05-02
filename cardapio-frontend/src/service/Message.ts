@@ -11,7 +11,10 @@ export function Message(config: any, order: any) {
             for(let additional of product.item) {
                 text += ` ${additional.qt_item}x ${additional.name} de ${formatMoeda(additional.value)}, `;
             }
+            text = text.replace(/,\s*$/, "")
         }
+
+        text += '\n';
     }
 
     
@@ -24,12 +27,12 @@ export function Message(config: any, order: any) {
     if (config.isCard === 'card') {
         text += `\nO pagamento é no cartão`;
     } else {
-        text += `\nO pagamento é no dinheiro`;
+        text += `\nO pagamento é no dinheiro `;
 
         if (config.thing) {
-            text += `Troco: ${config.thing}\n`;
+            text += `\nTroco: ${config.thing}\n`;
         } else {
-            text += `Sem troco\n`;
+            text += `sem troco\n`;
         }
     }
 

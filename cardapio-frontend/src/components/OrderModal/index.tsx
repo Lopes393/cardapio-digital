@@ -17,7 +17,21 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
 
     useEffect(() => {
         calcularTotal();
+        getInfoLocal();
     }, [status]) 
+
+    function getInfoLocal() {
+        let adress = Storage('address');
+        let thing = Storage('thing');
+
+        if (adress) {
+            setAddress(adress);
+        }
+
+        if (thing) {
+            setThing(thing);
+        }
+    }
     
     
     function setOpenModalProductAction(status: boolean) {
