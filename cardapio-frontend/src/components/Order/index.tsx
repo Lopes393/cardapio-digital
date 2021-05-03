@@ -18,8 +18,11 @@ export function Order() {
     function calcularOrder(order: any) {
         let total = 0;
 
-        for(let item of order) {
-            total += parseFloat(item.value); 
+        for(let product of order) {
+            total += parseFloat(product.value);
+            for(let item of product.item) {
+                total += parseFloat(item.value); 
+            }
         }
 
         setTotal(total)
@@ -38,6 +41,17 @@ export function Order() {
 
     function openModalFinalizar() {
         setOpenModalOrder(true)
+    }
+
+    function getTotalProduct({item, value}: any) {
+        console.log(item);
+        let totalProduct = parseFloat(value);
+
+        for(let additional of item) {
+            totalProduct += parseFloat(additional.value);
+        }
+
+        return totalProduct.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
     }
 
     function removeItem(item: any) {
@@ -73,7 +87,7 @@ export function Order() {
                                         <span>{additional.qt_item}x {additional.name}</span>
                                     ))}
                                 </div>
-                                <div>{parseFloat(item?.value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</div>
+                                <div>{getTotalProduct(item)}</div>
                             </li>
                             
                         ))}
