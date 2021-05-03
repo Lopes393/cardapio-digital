@@ -1,7 +1,7 @@
 import { Storage } from "./Storage";
 
 export function Message(config: any, order: any) {
-    let text = 'Pedido: \n';
+    let text = `Pedido de ${config.name}: \n`;
 
     for(let product of order) {
         text += `1 ${product.name} de ${formatMoeda(product.value)}\n`;

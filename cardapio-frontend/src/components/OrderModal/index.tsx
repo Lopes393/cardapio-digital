@@ -13,6 +13,7 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
     const [isDelivery, setIsDelivery] = useState<string>('');
 
     const [thing, setThing] = useState<string>('');
+    const [name, setName] = useState<string>('');
     const [address, setAddress] = useState<string>('');
 
     useEffect(() => {
@@ -23,6 +24,7 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
     function getInfoLocal() {
         let adress = Storage('address');
         let thing = Storage('thing');
+        let name = Storage('name');
 
         if (adress) {
             setAddress(adress);
@@ -30,6 +32,10 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
 
         if (thing) {
             setThing(thing);
+        }
+
+        if (name) {
+            setName(name);
         }
     }
     
@@ -45,11 +51,13 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
             isCard,
             isDelivery,
             totalDelivery,
-            totalProducts
+            totalProducts,
+            name
         }
         Storage('config', config, true);
         Storage('address', address, true);
         Storage('thing', thing, true);
+        Storage('name', name, true);
 
         Message(config, Storage('order'))
 
@@ -74,6 +82,10 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
             setTotalProducts(totalProduct)
             setTotalDelivery(totalDelivery)
         }
+    }
+
+    function nameChange(event: any) {    
+        setName(event.target.value); 
     }
 
     function thingChange(event: any) {    
@@ -105,6 +117,7 @@ export function OrderModal({status , product, setOpenModalOrder, setTelaGeral}: 
 
             <Content>
 
+                <input type="text" placeholder="Qual seu nome?" value={name} onChange={nameChange}/>
                 <div>
                     {isCard === 'card' ? <button className="active" onClick={()=> setIsCard('card')}>Cartão</button> : <button onClick={()=> setIsCard('card')}>Cartão</button>}
                     {isCard === 'money' ? <button className="active" onClick={()=> setIsCard('money')}>Dinheiro</button> : <button onClick={()=> setIsCard('money')}>Dinheiro</button>}

@@ -19,7 +19,9 @@ export function Order() {
         let total = 0;
 
         for(let product of order) {
+            
             total += parseFloat(product.value);
+            
             for(let item of product.item) {
                 total += parseFloat(item.value); 
             }
