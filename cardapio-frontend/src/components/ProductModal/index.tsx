@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import {BtnClose, Container, ContentHeader, Content, ContentAction, ContentTotal, Title} from './styles';
-import cancel from './../../assets/img/cancel.png';
+import cancel from './../../assets/img/icons/cancel.svg';
 import Modal from 'react-modal';
 import { api } from '../../service/api';
-import { imgProduct } from '../../service/ImgProduct';
-import imgMais from './../../assets/img/mais.png';
-import imgMenos from './../../assets/img/menos.png';
+import { ImagemProduct } from '../../service/ImagemProduct';
+import imgMais from './../../assets/img/icons/mais.svg';
+import imgMenos from './../../assets/img/icons/menos.svg';
 import { Storage } from '../../service/Storage';
 
 export function ProductModal({status , product, setOpenModalProduct, setTelaGeral}: any) {
@@ -105,7 +105,7 @@ export function ProductModal({status , product, setOpenModalProduct, setTelaGera
                 {additionals.map((item) => (
                     <div key={item.id}>
                         <div>
-                            <img src={imgProduct[`hotdog`]} alt=""/>
+                            <img src={ImagemProduct(item.icon)} alt=""/>
                             <strong>{item?.name}</strong>
                             <p>{parseFloat(item?.value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
                             <img src={imgMenos} onClick={()=> alterQuantity(item, false)} />

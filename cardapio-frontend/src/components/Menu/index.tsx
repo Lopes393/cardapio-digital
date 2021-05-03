@@ -5,9 +5,8 @@ import {
   BoxListMenu,
   Container,
   BoxMenu,
-  BoxListOrder
 } from "./styles";
-import menu from "./../../assets/img/icons/menu.png";
+import menu from "./../../assets/img/icons/menu.svg";
 import btnMenu from "./../../assets/img/icons/btnMenu.png";
 import btnMenuOpen from "./../../assets/img/icons/menuOpen.png";
 import btnPedido from "./../../assets/img/icons/btnPedido.png";

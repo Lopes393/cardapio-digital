@@ -1,22 +1,41 @@
 {
   "files": {
-    "main.js": "/static/js/main.02f2078f.chunk.js",
-    "main.js.map": "/static/js/main.02f2078f.chunk.js.map",
+    "main.js": "/static/js/main.85102059.chunk.js",
+    "main.js.map": "/static/js/main.85102059.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c6e5e456.js",
     "runtime-main.js.map": "/static/js/runtime-main.c6e5e456.js.map",
     "static/js/2.eb6f201a.chunk.js": "/static/js/2.eb6f201a.chunk.js",
     "static/js/2.eb6f201a.chunk.js.map": "/static/js/2.eb6f201a.chunk.js.map",
     "index.html": "/index.html",
     "static/js/2.eb6f201a.chunk.js.LICENSE.txt": "/static/js/2.eb6f201a.chunk.js.LICENSE.txt",
-    "static/media/hotdog.31e3e413.png": "/static/media/hotdog.31e3e413.png",
-    "static/media/mais.a0162b51.png": "/static/media/mais.a0162b51.png",
-    "static/media/menos.f7328416.png": "/static/media/menos.f7328416.png",
-    "static/media/pizza.f9602385.png": "/static/media/pizza.f9602385.png",
-    "static/media/remove.3c662b75.png": "/static/media/remove.3c662b75.png"
+    "static/media/bacon.f250b6d8.svg": "/static/media/bacon.f250b6d8.svg",
+    "static/media/burger.c919618e.svg": "/static/media/burger.c919618e.svg",
+    "static/media/cancel.2a41109c.svg": "/static/media/cancel.2a41109c.svg",
+    "static/media/coke.048c4513.svg": "/static/media/coke.048c4513.svg",
+    "static/media/cokes.5aab466f.svg": "/static/media/cokes.5aab466f.svg",
+    "static/media/guara.7543c7da.svg": "/static/media/guara.7543c7da.svg",
+    "static/media/guaral.5eabeee5.svg": "/static/media/guaral.5eabeee5.svg",
+    "static/media/hotdog.d4b225a0.svg": "/static/media/hotdog.d4b225a0.svg",
+    "static/media/kebab.e3854392.svg": "/static/media/kebab.e3854392.svg",
+    "static/media/limon.29d9f3e5.svg": "/static/media/limon.29d9f3e5.svg",
+    "static/media/limonl.14be044f.svg": "/static/media/limonl.14be044f.svg",
+    "static/media/mais.790effbe.svg": "/static/media/mais.790effbe.svg",
+    "static/media/menos.f8fcbf0a.svg": "/static/media/menos.f8fcbf0a.svg",
+    "static/media/menu.410f31ca.svg": "/static/media/menu.410f31ca.svg",
+    "static/media/mussarela.a8d8663b.svg": "/static/media/mussarela.a8d8663b.svg",
+    "static/media/orange.5755d53e.svg": "/static/media/orange.5755d53e.svg",
+    "static/media/partpizza.9bc45df6.svg": "/static/media/partpizza.9bc45df6.svg",
+    "static/media/pizza.3ef99cec.svg": "/static/media/pizza.3ef99cec.svg",
+    "static/media/remove.a690de23.svg": "/static/media/remove.a690de23.svg",
+    "static/media/salsicha.472c3216.svg": "/static/media/salsicha.472c3216.svg",
+    "static/media/shake.13ba08a1.svg": "/static/media/shake.13ba08a1.svg",
+    "static/media/soda.0e723d52.svg": "/static/media/soda.0e723d52.svg",
+    "static/media/sodaorange.f98bc4ab.svg": "/static/media/sodaorange.f98bc4ab.svg",
+    "static/media/softdrinks.028e858d.svg": "/static/media/softdrinks.028e858d.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.c6e5e456.js",
     "static/js/2.eb6f201a.chunk.js",
-    "static/js/main.02f2078f.chunk.js"
+    "static/js/main.85102059.chunk.js"
   ]
 }

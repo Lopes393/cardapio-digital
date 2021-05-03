@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {BtnClose, Container, ContentHeader, Content, ContentAction, ContentTotal, Title} from './styles';
-import cancel from './../../assets/img/cancel.png';
+import cancel from './../../assets/img/icons/cancel.svg';
 import Modal from 'react-modal';
 import { Storage } from '../../service/Storage';
 import { Message } from '../../service/Message';

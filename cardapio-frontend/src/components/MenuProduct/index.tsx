@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { api } from '../../service/api';
-import { imgProduct } from '../../service/ImgProduct';
+import { ImagemProduct } from '../../service/ImagemProduct';
 import {Container, BoxProduct, BoxProductList} from './styles';
 import animationData from './../../assets/lotties/hamburguer.json';
 import { ProductModal } from '../ProductModal';
@@ -40,10 +40,10 @@ export function MenuProduct({idMenu, setTelaGeral}: any) {
         <Container>
             <ProductModal status={openModalProduct} product={product} setOpenModalProduct={setOpenModalProduct} setTelaGeral={setTelaGeral}/>
             <BoxProductList>
-                {products.map((item) => (
+                {products.map((item: any) => (
                     <div key={item.id}>
                         <BoxProduct onClick={() => {openModal(item)}}>
-                            <img src={imgProduct['pizza']} alt=""/>
+                            <img src={ImagemProduct(item.icon)} alt=""/>
                             <div>
                                 <strong>{item.name}</strong>
                                 <p>{item.description}</p>

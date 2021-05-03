@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Container, BoxListOrder, BoxHeaderOrder, BoxTotalOrder, BtnClose } from './styles';
-import animationData from './../../assets/lotties/duvida.json';
-import animationDataDelivery from './../../assets/lotties/delivery.json';
 import { Storage } from '../../service/Storage';
 import { OrderModal } from '../OrderModal';
-import remove from './../../assets/img/remove.png';
+import remove from './../../assets/img/icons/remove.svg';
 import { OrderClear } from '../OrderClear';
 
 
