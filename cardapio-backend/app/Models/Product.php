@@ -18,6 +18,7 @@ class Product extends Model
         return self::select('product.*')
             ->join('menu as m', 'm.id', '=', 'product.id_menu')
             ->where('product.id_menu', $idMenu)
+            ->where('product.is_active', true)
             ->get()
         ;
     }
