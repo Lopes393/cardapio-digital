@@ -46,7 +46,7 @@ export const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 100%;
 
     div {
         padding: .5rem;
@@ -55,15 +55,25 @@ export const Content = styled.div`
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            width: 300px;
+            max-width: 300px;
 
-            strong , p {
-                margin-right: 20px;
+            div:first-child {
+                flex: 1;
+                width: 200px;
+                max-width: 200px;
             }
+
+            div:last-child {
+                width: 80px;
+                max-width: 80px;
+            }
+
 
             img {
                 width: 20px;
                 height: 20px;
-                margin-right: 10%;
+                margin: 0px 10px;
 
                 &:active {
                     width: 25px;

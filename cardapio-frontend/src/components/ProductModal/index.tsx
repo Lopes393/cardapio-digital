@@ -101,16 +101,20 @@ export function ProductModal({status , product, setOpenModalProduct, setTelaGera
                 <p>{product?.description}</p>
             </ContentHeader>
             <Content>
-                {additionals.length > 0 ? <Title>Acrecimos</Title>: ''}
+                {additionals.length > 0 ? <Title>Adicionais</Title>: ''}
                 {additionals.map((item) => (
                     <div key={item.id}>
                         <div>
                             <img src={ImagemProduct(item.icon)} alt=""/>
-                            <strong>{item?.name}</strong>
-                            <p>{parseFloat(item?.value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-                            <img src={imgMenos} onClick={()=> alterQuantity(item, false)} />
-                            <p>{item?.qt_item}</p>
-                            <img src={imgMais} onClick={()=> alterQuantity(item)} />
+                            <div>
+                                <strong>{item?.name}</strong>
+                                <p>{parseFloat(item?.value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                            </div>
+                            <div>
+                                <img src={imgMenos} onClick={()=> alterQuantity(item, false)} />
+                                <p>{item?.qt_item}</p>
+                                <img src={imgMais} onClick={()=> alterQuantity(item)} />
+                            </div>
                         </div>
                     </div>
                 ))}
