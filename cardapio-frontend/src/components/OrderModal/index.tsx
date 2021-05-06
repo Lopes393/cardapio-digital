@@ -39,7 +39,6 @@ export function OrderModal({
     let adress = Storage("address");
     let thing = Storage("thing");
     let name = Storage("name");
-    let cupom = Storage("cupom");
 
     if (adress) {
       setAddress(adress);
@@ -51,9 +50,6 @@ export function OrderModal({
 
     if (name) {
       setName(name);
-    }
-    if (cupom) {
-      setCupom(cupom);
     }
   }
 
