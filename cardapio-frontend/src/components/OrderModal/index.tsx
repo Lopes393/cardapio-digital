@@ -215,7 +215,7 @@ export function OrderModal({
           )}
           <input
             type="text"
-            placeholder="CUPOM"
+            placeholder="Cupom"
             value={cupom}
             onChange={cupomChange}
           />
