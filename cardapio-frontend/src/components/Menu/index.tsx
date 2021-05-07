@@ -75,7 +75,7 @@ export function Menu() {
                   
                 }}
               >
-                <img src={menu} alt="" />
+                <img src={menu} />
                 <strong>{item.description}</strong>
               </BoxMenu>
             ))
@@ -86,10 +86,10 @@ export function Menu() {
       )}
       <BoxButtom>
         <div onClick={alterTela}>
-          <img src={telaMenu === "menuItem" ? btnMenuOpen : btnMenu} alt="" />
+          {telaMenu === "menuItem" ? <img src={btnMenuOpen}/> : <img src={btnMenu}  style={{width: 36}}/>}
         </div>
         <div onClick={() => setTelaGeral("order")}>
-          <img src={btnPedido} alt="" />
+          <img src={btnPedido} />
         </div>
       </BoxButtom>
     </Container>

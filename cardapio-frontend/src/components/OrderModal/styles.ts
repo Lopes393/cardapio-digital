@@ -48,7 +48,7 @@ export const Content = styled.div`
     width: 100%;
 
     div {
-        margin-top: 10px;
+        /* margin-top: 10px; */
         margin-bottom: 20px;
         button {
             padding: 10px;
@@ -69,16 +69,17 @@ export const Content = styled.div`
     input {
         width: 100%;
         background-color: #fff;
-        padding: 10px;
+        padding: 5px;
         border: none;
         border: 1px solid #aaa;
         border-radius: 5px;
-        margin: 20px 0px;
+        margin: 5px 0px;
     }
 
     .active {
-        background-color: #28a265 !important;
-        color: #fff;
+        border: 2px solid #28a265 !important;
+        background-color: #28a26509 !important;
+        color:  #28a265;
         border: none;
     }
     
@@ -86,7 +87,7 @@ export const Content = styled.div`
         font-size: .8rem;
         align-items: left;
         width: 100%;
-        margin-top: -10px;
+        /* margin-top: -10px; */
     }
 
 `;

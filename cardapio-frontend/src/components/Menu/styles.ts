@@ -37,15 +37,16 @@ export const BoxButtom = styled.div`
     width: 50%;
     flex: 1;
     padding: 1em 5.5em;
-  }
 
-  img {
-    width: 50px;
-    transition: transform 0.2s;
-    &:hover {
-      transform: scale(1.1);
+    img {
+      width: 40px;
+      transition: transform 0.2s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
+
 `;
 
 export const BoxMenu = styled.div`
