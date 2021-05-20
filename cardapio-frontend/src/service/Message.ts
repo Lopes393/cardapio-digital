@@ -57,6 +57,8 @@ export function Message(config: any, order: any) {
     return;
   }
 
+  Storage('order', false, false, true);
+
   window.location.href = `https://api.whatsapp.com/send?phone=55${phone}&text=${window.encodeURIComponent(
     text
   )}`;
