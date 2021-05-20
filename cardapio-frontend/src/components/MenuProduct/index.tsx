@@ -31,7 +31,7 @@ export function MenuProduct({idMenu, setTelaGeral}: any) {
 
     function getProducts() {
         if (idMenu)  {
-            api.get(`product/${idMenu}`).then(response => setProducts(response.data))
+            api.get(`product/${idMenu}`).then(response => (setProducts(response.data), console.log(response.data)))
         }
         
     }

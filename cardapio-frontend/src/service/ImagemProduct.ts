@@ -17,6 +17,11 @@ import limonl from './../assets/img/product/limonl.svg';
 import softdrinks from './../assets/img/product/softdrinks.svg';
 import guaral from './../assets/img/product/guaral.svg';
 import guara from './../assets/img/product/guara.svg';
+import arroz from './../assets/img/product/arroz.svg';
+import espetinho from './../assets/img/product/espetinho.svg';
+import feijaoTropeiro from './../assets/img/product/feijaoTropeiro.svg';
+import jantinha from './../assets/img/product/jantinha.svg';
+import mandioca from './../assets/img/product/mandioca.svg';
 
 const arIcon: any= {
     guara,
@@ -38,6 +43,11 @@ const arIcon: any= {
     soda,
     sodaorange,
     softdrinks,
+    arroz,
+    espetinho,
+    feijaoTropeiro,
+    jantinha,
+    mandioca,
 }
 
 export function ImagemProduct(icon: any) {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../../service/api";
 import { Container, ImgBox, UserBox, BoxHamb } from "./styles";
-import animationData from "./../../assets/lotties/atendente.json";
+import animationData from "./../../assets/lotties/food.json";
 import Lottie from "react-lottie";
 import { Storage } from "../../service/Storage";
 

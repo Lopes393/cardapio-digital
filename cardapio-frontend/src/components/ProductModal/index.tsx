@@ -57,6 +57,9 @@ export function ProductModal({status , product, setOpenModalProduct, setTelaGera
     }
 
     function alterQuantity(item: any, incre: boolean = true) {
+        if (item.value == 0 && incre && item.qt_item == 1) {
+            return;
+        }
         if (incre) {
             item.qt_item += 1;
         } else {
