@@ -18,6 +18,7 @@ export function OrderModal({
   product,
   setOpenModalOrder,
   setTelaGeral,
+  user,
 }: any) {
   const [totalProducts, setTotalProducts] = useState<number>(0);
   const [totalDelivery, setTotalDelivery] = useState<number>(0);
@@ -29,7 +30,7 @@ export function OrderModal({
   const [name, setName] = useState<string>("");
   const [address, setAddress] = useState<string>("");
   const [cupom, setCupom] = useState<string>("");
-
+  console.log(user);
   useEffect(() => {
     calcularTotal();
     getInfoLocal();
@@ -168,57 +169,68 @@ export function OrderModal({
           ) : (
             ""
           )}
+          {user.bo_delivery ? (
+            thing !== "" || isCard == "card" ? (
+              <div>
+                {isDelivery === "delivery" ? (
+                  <button
+                    className="active"
+                    onClick={() => setIsDelivery("delivery")}
+                  >
+                    Entregar
+                  </button>
+                ) : (
+                  <button onClick={() => setIsDelivery("delivery")}>
+                    Entregar
+                  </button>
+                )}
 
-          {thing !== "" || isCard == "card" ? (
-            <div>
-              {isDelivery === "delivery" ? (
-                <button
-                  className="active"
-                  onClick={() => setIsDelivery("delivery")}
-                >
-                  Entregar
-                </button>
-              ) : (
-                <button onClick={() => setIsDelivery("delivery")}>
-                  Entregar
-                </button>
-              )}
-              {isDelivery === "goway" ? (
-                <button
-                  className="active"
-                  onClick={() => setIsDelivery("goway")}
-                >
-                  Vou buscar
-                </button>
-              ) : (
-                <button onClick={() => setIsDelivery("goway")}>
-                  Vou buscar
-                </button>
-              )}
-            </div>
+                {isDelivery === "goway" ? (
+                  <button
+                    className="active"
+                    onClick={() => setIsDelivery("goway")}
+                  >
+                    Vou buscar
+                  </button>
+                ) : (
+                  <button onClick={() => setIsDelivery("goway")}>
+                    Vou buscar
+                  </button>
+                )}
+              </div>
+            ) : (
+              ""
+            )
           ) : (
             ""
           )}
-
-          {isDelivery === "delivery" ? (
-            <>
-              <input
-                type="text"
-                placeholder="Qual o seu endereço?"
-                value={address}
-                onChange={addressChange}
-              />
-              <p>Ex: Rua M19 setor Central n° 14</p>
-            </>
+          {user.bo_delivery ? (
+            isDelivery === "delivery" ? (
+              <>
+                <input
+                  type="text"
+                  placeholder="Qual o seu endereço?"
+                  value={address}
+                  onChange={addressChange}
+                />
+                <p>Ex: Rua M19 setor Central n° 14</p>
+              </>
+            ) : (
+              ""
+            )
           ) : (
             ""
           )}
-          <input
-            type="text"
-            placeholder="Cupom"
-            value={cupom}
-            onChange={cupomChange}
-          />
+          {user.bo_cupom ? (
+            <input
+              type="text"
+              placeholder="Cupom"
+              value={cupom}
+              onChange={cupomChange}
+            />
+          ) : (
+            ""
+          )}
         </Content>
 
         <ContentTotal>
