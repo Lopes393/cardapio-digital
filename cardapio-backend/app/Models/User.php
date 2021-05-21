@@ -27,7 +27,9 @@ class User extends Authenticatable
         'bussines_key',
         'is_active',
         'password',
-        'remember_token'
+        'remember_token',
+        'bo_delivery',
+        'bo_cupom',
     ];
 
     /**
