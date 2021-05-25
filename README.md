@@ -24,7 +24,7 @@ Nosso projeto veio para ripar esse processo chato e burocrático, esperamos que 
 
 ---
 
-Por Thyerre Rangel, João Paulo França e Murilo Lopes
+Por [Thyerre Rangel](https://github.com/thyerre), [João Paulo França](https://github.com/joaopaulofranca) e [Murilo Lopes](https://github.com/Lopes393)
 
 ## Iniciando...
 
