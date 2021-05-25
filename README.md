@@ -1,4 +1,4 @@
-# Cardapio Online
+# Cardápio Online
 
 <div align="center" style="display: flex; flex-direction: row">
   <img alt="cardapio" title="cardapio-online" src="./.github/main.png" width="250px"/>
