@@ -21,3 +21,4 @@ cardapio-backend/Homestead.yaml
 cardapio-backend/Homestead.json
 cardapio-backend/.vagrant
 cardapio-backend/.phpunit.result.cache
+.github/
