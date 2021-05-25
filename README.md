@@ -1,4 +1,4 @@
-# cardapio-digital
+# Cardapio Online
 
 <div align="center" style="display: flex; flex-direction: row">
   <img alt="cardapio" title="cardapio-online" src="./.github/main.png" width="250px"/>
@@ -12,14 +12,10 @@
 
 Projeto desenvolvido com as seguintes tecnologias:
 
-- MySQL
 - Laravel
 - ReactJS
 - TypeScript
-- useState (hook que armazena dados que podem variar com o tempo, qualquer informação ou dado deve ser armazenado no useState, só assim será possível renderizar a informação para o frontend web ou mobile)
-- useEfect (hook utilizado para controlar a execução de uma função a partir da alteração de um determinado parâmetro)
-- Styled Components (biblioteca que permite escrever códigos CSS dentro do Javascript)
-
+- MySQL
 
 ## 💻 Projeto
 
@@ -29,3 +25,23 @@ Nosso projeto veio para ripar esse processo chato e burocrático, esperamos que 
 ---
 
 Por Thyerre Rangel, João Paulo França e Murilo Lopes
+
+## Iniciando...
+
+<ul>
+    <li>git clone https://github.com/Lopes393/cardapio-digital.git</li>
+    <li>cd cardapio-digital</li>
+    <li>cd cardapio-frontend</li>
+    <li><strong>yarn install</strong></li>
+    <li>cd ..</li>
+    <li>cd cardapio-backend</li>
+    <li><strong>composer install</strong></li>
+</ul>
+
+## Pré-requisitos
+
+<ul>
+    <li>PHP 8</li>
+    <li>Composer</li>
+    <li>Yarn</li>
+</ul>
