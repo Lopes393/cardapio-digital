@@ -1,9 +1,9 @@
 # cardapio-digital
 
 <div style="display: flex; flex-direction: row">
-  <img alt="cardapio" title="cardapio-online" src="./.github/main.png" width="100px"/>
-  <img alt="Produtos" src=".github/produtos.png" width="100px">
-  <img alt="Pedidos" src=".github/pedidos.png" width="100px">
+  <img alt="cardapio" title="cardapio-online" src="./.github/main.png" width="150px"/>
+  <img alt="Produtos" src=".github/produtos.png" width="150px" style="margin: 0 20px">
+  <img alt="Pedidos" src=".github/pedidos.png" width="150px">
 </div>
 
 <br/>
