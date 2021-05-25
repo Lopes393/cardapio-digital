@@ -1,17 +1,19 @@
 # cardapio-digital
 
 <div style="display: flex; flex-direction: row">
-  <img alt="cardapio" title="cardapio-online" src="./.github/main.png"/>
-  <img alt="Produtos" src=".github/produtos.png">
-  <img alt="Pedidos" src=".github/pedidos.png">
+  <img alt="cardapio" title="cardapio-online" src="./.github/main.png" width="100px"/>
+  <img alt="Produtos" src=".github/produtos.png" width="100px">
+  <img alt="Pedidos" src=".github/pedidos.png" width="100px">
 </div>
 
 <br/>
 
-## 🚀 Tecnologias, Hooks e Bibliotecas
+## 🚀 Tecnologias
 
 Projeto desenvolvido com as seguintes tecnologias:
 
+- MySQL
+- Laravel
 - ReactJS
 - TypeScript
 - useState (hook que armazena dados que podem variar com o tempo, qualquer informação ou dado deve ser armazenado no useState, só assim será possível renderizar a informação para o frontend web ou mobile)
