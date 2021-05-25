@@ -1,6 +1,6 @@
 # cardapio-digital
 
-<div align="center" style="display: flex">
+<div style="display: flex; flex-direction: row">
   <img alt="cardapio" title="cardapio-online" src="./.github/main.png"/>
   <img alt="Produtos" src=".github/produtos.png">
   <img alt="Pedidos" src=".github/pedidos.png">
