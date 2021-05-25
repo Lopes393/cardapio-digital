@@ -1,10 +1,10 @@
 # cardapio-digital
 
-<h1 align="center">
+<div align="center" style="display: flex">
   <img alt="cardapio" title="cardapio-online" src="./.github/main.png"/>
   <img alt="Produtos" src=".github/produtos.png">
   <img alt="Pedidos" src=".github/pedidos.png">
-</h1>
+</div>
 
 <br/>
 
